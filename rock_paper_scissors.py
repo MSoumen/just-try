@@ -5,13 +5,14 @@ import random
 # checking who is great
 # Who Win
 # if tie repeat prompt
-
-# todo- maka a count to make a scoreboard
+# maka a count to make a scoreboard
 
 #--------Global _varibles------------
 item=['Rock','Paper','Scissors']
 prompt=''
 machine_prompt=''
+win_count=0
+lose_count=0
 
 # main funtion goes here-----
 def main():
@@ -50,16 +51,17 @@ def checking(prompt,machine_prompt):
         else:
             tie()
 
-winner_count=0
-lose_count=0
+
 # Winning_Function
 def win():
-    winner_count+=1
+    global win_count
+    win_count+=1
     print('Wow, You Won')
 
 
 # Losing_function
 def lost():
+    global lose_count
     lose_count+=1
     print('Blah, You Beated')
 
@@ -73,7 +75,7 @@ def game():
         main()
         again=input('Play Again (Y/N) : ')[0]
         if (again!='Y' and again!='y'):
-            print('You won ',winner_count,' times')
+            print('You won ',win_count,' times')
             print('You lose ',lose_count,' times')
             print('Good Bye')
             break
